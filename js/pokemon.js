@@ -10,6 +10,7 @@ var Pokemon = /** @class */ (function () {
         this.attacks = attacks;
         this.weakness = weakness;
         this.resistance = resistance;
+        this.alive = true;
     }
     Pokemon.prototype.Attack = function (attack, defender) {
         console.log("".concat(defender.name, "'s health is ").concat(defender.currentHealth));
@@ -25,13 +26,22 @@ var Pokemon = /** @class */ (function () {
             defender.TakeDamage(currentDamage);
         }
         else {
-            console.log("".concat(this.name, " attack ").concat(defender.name, " with ").concat(attack.name, ", did ").concat(currentDamage, "!"));
+            console.log("".concat(this.name, " attack ").concat(defender.name, " with ").concat(attack.name, ", did ").concat(attack.baseDamage, "!"));
             defender.TakeDamage(attack.baseDamage);
         }
     };
     Pokemon.prototype.TakeDamage = function (damage) {
         this.currentHealth -= damage;
-        console.log("".concat(this.name, " heeft nu ").concat(this.currentHealth, " HP"));
+        if (this.currentHealth <= 0) {
+            this.Die();
+        }
+        else {
+            console.log("".concat(this.name, " has ").concat(this.currentHealth, " HP"));
+        }
+    };
+    Pokemon.prototype.Die = function () {
+        this.alive = false;
+        console.log("".concat(this.name, " has fainted"));
     };
     return Pokemon;
 }());
