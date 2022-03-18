@@ -1,6 +1,8 @@
 
 export class EnergyType {
-    constructor(){
-        
+
+    public name;
+    constructor(name: string){
+        this.name = name;
     }       
 }

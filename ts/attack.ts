@@ -4,7 +4,8 @@ export class Attack {
 
     public name: string;
     public energyType: EnergyType;
-    public baseDamage: Number;
+    public baseDamage: number;
+    
     constructor(name: string, energyType: EnergyType, baseDamage: number){
         this.name = name;
         this.energyType = energyType;

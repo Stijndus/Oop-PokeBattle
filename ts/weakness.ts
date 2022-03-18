@@ -1,5 +1,8 @@
 export class Weakness{
-    constructor(){
-        
+    public name: string;
+    public multiplier: number;
+    constructor(name: string, multiplier: number){
+        this.name = name;
+        this.multiplier = multiplier;
     }
 }
