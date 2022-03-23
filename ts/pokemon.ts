@@ -56,6 +56,7 @@ export class Pokemon {
   }
 
   private TakeDamage(damage: number) {
+    if(damage < 0) return console.log(`${this.name} dodged the attack!`)
     this.currentHealth -= damage;
     if (this.currentHealth <= 0) {
       this.Die();

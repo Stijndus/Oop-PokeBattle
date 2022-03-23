@@ -31,6 +31,8 @@ var Pokemon = /** @class */ (function () {
         }
     };
     Pokemon.prototype.TakeDamage = function (damage) {
+        if (damage < 0)
+            return console.log("".concat(this.name, " dodged the attack!"));
         this.currentHealth -= damage;
         if (this.currentHealth <= 0) {
             this.Die();
